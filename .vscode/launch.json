@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-CustomerApplication<customer>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.ecommerce.customer.CustomerApplication",
+            "projectName": "customer",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-OrderApplication<order>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.ecommerce.order.OrderApplication",
+            "projectName": "order",
+            "args": ""
+        }
+    ]
+}
