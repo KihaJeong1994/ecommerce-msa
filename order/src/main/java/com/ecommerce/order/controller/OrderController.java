@@ -3,7 +3,6 @@ package com.ecommerce.order.controller;
 import java.util.List;
 import java.util.UUID;
 
-import com.ecommerce.order.composites.CustomerComposite;
 import com.ecommerce.order.model.Orders;
 import com.ecommerce.order.service.OrderService;
 
@@ -32,9 +31,6 @@ public class OrderController {
 
     @PostMapping("/orders")
     public Orders insertOrder(@RequestBody Orders orders) throws Exception{
-        System.out.println("--------------------------");
-        System.out.println(orders);
-        System.out.println("--------------------------");
         orders.setOrderId(UUID.randomUUID().toString());
         return orderService.insertOrder(orders);
     }

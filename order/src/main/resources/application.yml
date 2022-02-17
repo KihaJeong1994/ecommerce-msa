@@ -12,7 +12,7 @@ spring:
   jpa:
     open-in-view: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
       use-new-id-generator-mappings: false
@@ -39,6 +39,14 @@ management:
 customer:
   api:
     url: http://localhost:8076
+
+resilience4j:
+  bulkhead:
+    instances:
+      customer:
+        max-concurrent-calls: 1
+        max-wait-duration: 10ms
+        
 
 
 
