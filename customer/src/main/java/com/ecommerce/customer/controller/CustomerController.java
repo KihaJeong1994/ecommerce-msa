@@ -5,6 +5,7 @@ import com.ecommerce.customer.model.Customer;
 import com.ecommerce.customer.service.CustomerService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,12 +16,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api")
 public class CustomerController {
+
+    @Value("${server.port}")
+    String port;
     
     @Autowired
     CustomerService customerService;
 
     @GetMapping("/customer")
     public List<Customer> selectAllCustomer(){
+        System.out.println("---------customer selectAllCustomer 호출----------");
+        System.out.println("---------customer selectAllCustomer port"+port+"----------");
         return customerService.selectAllCustomer();
     }
 

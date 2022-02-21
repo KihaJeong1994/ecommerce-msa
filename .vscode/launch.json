@@ -29,6 +29,16 @@
             "mainClass": "com.ecommerce.eureka.EurekaApplication",
             "projectName": "eureka",
             "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ApiGatewayApplication<api-gateway>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.ecommerce.apigateway.ApiGatewayApplication",
+            "projectName": "api-gateway",
+            "args": ""
         }
     ]
 }
