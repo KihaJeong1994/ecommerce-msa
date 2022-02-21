@@ -24,6 +24,8 @@ spring:
       fail-on-empty-beans: false
   application:
     name: ecommerce-order
+  main:
+    allow-circular-references: true
 
 http:
   encoding:
@@ -51,6 +53,13 @@ resilience4j:
       customer:
         max-concurrent-calls: 1
         max-wait-duration: 10ms
+
+#eureka
+eureka:
+  client:
+    register-with-eureka: true # 자신의 서비스 정보 eureka 등록 여부
+    fetch-registry: true # eureka의 서비스 목록 정보를 local에 caching 하는 설정
+
         
 
 

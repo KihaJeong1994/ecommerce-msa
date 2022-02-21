@@ -1,8 +1,6 @@
 package com.ecommerce.customer.controller;
 
 import java.util.List;
-import java.util.UUID;
-
 import com.ecommerce.customer.model.Customer;
 import com.ecommerce.customer.service.CustomerService;
 

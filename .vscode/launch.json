@@ -19,6 +19,16 @@
             "mainClass": "com.ecommerce.order.OrderApplication",
             "projectName": "order",
             "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-EurekaApplication<eureka>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.ecommerce.eureka.EurekaApplication",
+            "projectName": "eureka",
+            "args": ""
         }
     ]
 }
