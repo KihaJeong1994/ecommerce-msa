@@ -8,5 +8,5 @@ import io.github.resilience4j.bulkhead.BulkheadFullException;
 
 public interface CustomerComposite {
     public Customer retrieveCustomer(String userid) throws Exception;
-    public Customer getCustomerFallback(String userId, BulkheadFullException bulkheadFullException) throws Exception;
+    public Customer getCustomerFallback(String userid, BulkheadFullException bException) throws Exception;
 }

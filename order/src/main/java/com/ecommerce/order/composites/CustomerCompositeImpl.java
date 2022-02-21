@@ -12,8 +12,6 @@ import org.springframework.web.client.RestTemplate;
 
 import io.github.resilience4j.bulkhead.BulkheadFullException;
 import io.github.resilience4j.bulkhead.annotation.Bulkhead;
-import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
-import io.github.resilience4j.timelimiter.annotation.TimeLimiter;
 
 @Component
 public class CustomerCompositeImpl implements CustomerComposite{
@@ -30,15 +28,15 @@ public class CustomerCompositeImpl implements CustomerComposite{
     RestTemplate restTemplate;
 
     @Override
-    @CircuitBreaker(name ="customer", fallbackMethod="getCustomerFallback")
-    @Bulkhead(name = "customer",type = Bulkhead.Type.SEMAPHORE, fallbackMethod = "getCustomerFallback")
+    @Bulkhead(name = "customer",  type = Bulkhead.Type.SEMAPHORE, fallbackMethod = "getCustomerFallback")
     public Customer retrieveCustomer(String userid) throws Exception{
         return restTemplate.getForObject(CUSTOMER_API_URL+
         "/api/customer/"+userid, Customer.class);
     }
 
-    public Customer getCustomerFallback(String userId, BulkheadFullException bulkheadFullException) throws Exception{
-        String msg = "Error: "+userId+"에 해당하는 고객 정보 조회가 지연되고 있습니다.";
+    @Override
+    public Customer getCustomerFallback(String userid, BulkheadFullException bException) throws Exception{
+        String msg = "두개 이상의 요청이 동시에 들어왔습니다.";
         System.out.println(msg);
         throw new Exception();
     }

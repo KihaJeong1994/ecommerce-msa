@@ -14,6 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import ch.qos.logback.core.subst.Token.Type;
+import io.github.resilience4j.bulkhead.annotation.Bulkhead;
+
 @Service("orderService")
 public class OrderService {
     

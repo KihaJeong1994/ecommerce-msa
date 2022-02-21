@@ -3,7 +3,6 @@ package com.ecommerce.order.controller;
 import java.util.List;
 import java.util.UUID;
 
-import com.ecommerce.order.composites.CustomerComposite;
 import com.ecommerce.order.model.Orders;
 import com.ecommerce.order.service.OrderService;
 

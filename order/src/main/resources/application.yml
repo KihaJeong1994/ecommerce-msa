@@ -49,15 +49,8 @@ resilience4j:
   bulkhead:
     instances:
       customer:
-        maxWaitDuration: 1s
-        maxConcurrentCalls: 1
-
-      
-
-
-
-      
-      
+        max-concurrent-calls: 1
+        max-wait-duration: 10ms
         
 
 

@@ -27,8 +27,8 @@ public class CustomerController {
     }
 
     @GetMapping("/customer/{userId}")
-    public Customer selectCustomerByUserid(@PathVariable String userId) throws Exception{
-        Thread.sleep(2000);
+    public Customer selectCustomerByUserid(@PathVariable String userId) throws InterruptedException{
+        Thread.sleep(3000);
         return customerService.selectCustomerByUserid(userId);
     }
 
