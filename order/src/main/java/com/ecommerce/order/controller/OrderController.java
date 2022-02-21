@@ -32,9 +32,6 @@ public class OrderController {
 
     @PostMapping("/orders")
     public Orders insertOrder(@RequestBody Orders orders) throws Exception{
-        System.out.println("--------------------------");
-        System.out.println(orders);
-        System.out.println("--------------------------");
         orders.setOrderId(UUID.randomUUID().toString());
         return orderService.insertOrder(orders);
     }

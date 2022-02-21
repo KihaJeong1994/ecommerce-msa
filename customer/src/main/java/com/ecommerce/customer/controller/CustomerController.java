@@ -26,6 +26,12 @@ public class CustomerController {
         return customerService.selectAllCustomer();
     }
 
+    @GetMapping("/customer/{userId}")
+    public Customer selectCustomerByUserid(@PathVariable String userId) throws Exception{
+        Thread.sleep(2000);
+        return customerService.selectCustomerByUserid(userId);
+    }
+
     @GetMapping("/customer/{userid}/exists")
     public boolean existsCustomer(@PathVariable("userid") String userid){
         boolean result = false;
