@@ -22,5 +22,14 @@ eureka:
   client:
     register-with-eureka: true # 자신의 서비스 정보 eureka 등록 여부
     fetch-registry: true # eureka의 서비스 목록 정보를 local에 caching 하는 설정
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - "gateway"
+  endpoint:
+    gateway:
+      enabled: true
 
           
