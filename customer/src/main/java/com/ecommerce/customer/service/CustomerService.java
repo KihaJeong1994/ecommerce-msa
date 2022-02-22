@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+
 @Service
 public class CustomerService {
     
@@ -18,6 +20,7 @@ public class CustomerService {
     private CustomerRepository customerRepository;
 
     @Transactional
+    @CircuitBreaker(name = "example")
     public Customer insertCustomer(Customer customer){
         return customerRepository.save(customer);
     }

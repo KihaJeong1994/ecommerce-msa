@@ -1,5 +1,5 @@
-# server:
-#   port: 8076 # 포트를 동적으로 할당 받기 위해 0으로 변경
+server:
+  port: 8076 # 포트를 동적으로 할당 받기 위해 0으로 변경
 
 
 spring:
@@ -34,6 +34,24 @@ management:
         web:
             exposure:
                 include: "*"
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        registerHealthIndicator: true
+        slidingWindowSize: 10 # circuit breaker가 닫혀있을 때 사용할 sliding window의 사이즈
+        minimum-number-of-calls: 5 # circuit breaker가 error rate 나 slow call rate를 계산하기 위한 최소한의 call 수
+        permittedNumberOfCallsInHalfOpenState: 3 # circuit breaker가 half open 상태일 때 허용된 요청을 얼마나 받을 지
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 10s # open에서 half-open으로 넘어가기 전 얼마나 open 상태를 유지할 것인지
+
+        failureRateThreshold: 50 # 실패율 threshold. 이 실패율을 넘기면 circuit breaker open
+        eventConsumerBufferSize: 10
+        ignore-exceptions:
+          - java.util.NoSuchElementException
+    instances:
+      example:
+        base-config: default
 
 #eureka
 eureka:

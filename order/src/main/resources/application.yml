@@ -23,7 +23,7 @@ spring:
     serialization:
       fail-on-empty-beans: false
   application:
-    name: ecommerce-order
+    name: ecommerce-orders
   main:
     allow-circular-references: true
 
@@ -42,10 +42,6 @@ customer:
   api:
     url: http://localhost:8076
 
-resilience4j.circuitbreaker:
-  configs:
-    default:
-      waitDurationInOpenState: 5000
 
 resilience4j:
   bulkhead:

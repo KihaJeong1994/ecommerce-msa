@@ -13,10 +13,13 @@ spring:
         - Path=/api/customer/**
         filters:
         - AddResponseHeader=X-Response-Red, Blue
-      - id: ecommerce-order
-        uri: lb://ECOMMERCE-ORDER
+      - id: ecommerce-orders
+        uri: lb://ECOMMERCE-ORDERS
         predicates:
-        - Path=/ecommerce/order/**
+        - Path=/api/orders/**
+
+
+      
 #eureka
 eureka:
   client:
