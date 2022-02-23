@@ -17,6 +17,8 @@ spring:
         uri: lb://ECOMMERCE-ORDERS
         predicates:
         - Path=/api/orders/**
+        filters:
+        - CircuitBreaker=myCircuitBreaker
 
 
       
