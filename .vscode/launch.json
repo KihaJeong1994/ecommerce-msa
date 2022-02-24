@@ -39,6 +39,16 @@
             "mainClass": "com.ecommerce.apigateway.ApiGatewayApplication",
             "projectName": "api-gateway",
             "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-FallbackApplication<fallback>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.ecommerce.fallback.FallbackApplication",
+            "projectName": "fallback",
+            "args": ""
         }
     ]
 }

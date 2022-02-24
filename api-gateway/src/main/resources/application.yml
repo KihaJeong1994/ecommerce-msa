@@ -1,26 +1,36 @@
 server:
   port: 8070
 
+
 spring:
   application:
     name: ecommerce-gateway
   cloud:
     gateway:
       routes:
+      - id: ecommerce-orders
+        uri: lb://ECOMMERCE-ORDERS
+        predicates:
+        - Path=/api/orders/**
+        filters:
+        - name: CircuitBreaker
+          args:
+            name: myCircuitBreaker
+            fallbackUri: forward:/fallback
+
+
       - id: ecommerce-customer
         uri: lb://ECOMMERCE-CUSTOMER
         predicates:
         - Path=/api/customer/**
         filters:
         - AddResponseHeader=X-Response-Red, Blue
-      - id: ecommerce-orders
-        uri: lb://ECOMMERCE-ORDERS
+
+      - id: fallback
+        uri: http://localhost:9000
         predicates:
-        - Path=/api/orders/**
-        filters:
-        - CircuitBreaker=myCircuitBreaker
-
-
+        - Path=/fallback
+      
       
 #eureka
 eureka:

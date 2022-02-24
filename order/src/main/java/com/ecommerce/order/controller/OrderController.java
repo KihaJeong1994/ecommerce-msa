@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import reactor.core.publisher.Mono;
+
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
@@ -30,9 +33,10 @@ public class OrderController {
     }
 
     @PostMapping("/orders")
-    public Orders insertOrder(@RequestBody Orders orders) throws Exception{
-        orders.setOrderId(UUID.randomUUID().toString());
-        return orderService.insertOrder(orders);
+    public Mono<Orders> insertOrder(@RequestBody Orders orders) throws Exception{
+        // orders.setOrderId(UUID.randomUUID().toString());
+        return Mono.just(orderService.insertOrder(orders));
+        // return orderService.insertOrder(orders);
     }
 
 
